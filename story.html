@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Story</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@600&display=swap" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Schibsted Grotesk', sans-serif;
+        background-color: #f2f2f2;
+      }
+
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        height: 100vh;
+        cursor: pointer;
+      }
+
+      .image {
+        flex: 1;
+        position: relative;
+        height: 100%;
+        overflow: hidden;
+        cursor: pointer;
+      }
+
+      .image img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        transition: all 0.3s ease;
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+      }
+
+      .overlay h2 {
+        color: #fff;
+        font-size: 2rem;
+        text-align: center;
+      }
+
+      .image:hover img {
+        transform: scale(1.2);
+        /* filter: blur(0px); */
+        z-index: 1;
+      }
+
+      .image:hover .overlay {
+        opacity: 1;
+        z-index: 2;
+      }
+
+      .image.a:hover ~ .image:not(.a) img {
+        filter: blur(3px);
+      }
+
+      .image.b:hover ~ .image:not(.b) img {
+        filter: blur(3px);
+      }
+
+      .image.c:hover ~ .image:not(.c) img {
+        filter: blur(3px);
+      }
+
+      .image.d:hover ~ .image:not(.d) img {
+        filter: blur(3px);
+      }
+
+      .image.e:hover ~ .image:not(.e) img {
+        filter: blur(3px);
+      }
+      .top-bar {
+        border: 1px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #1e1e1e;
+        z-index: 999;
+      }
+
+      .logo img {
+        height: 60px;
+        background-color: transparent;
+      }
+
+      nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+
+      nav li {
+        margin-right: 20px;
+      }
+
+      nav a {
+        color: #ffffff78;
+        text-decoration: none;
+      }
+      nav a:hover {
+        color: #ffffff;
+        transition: 0.6s;
+      }
+      nav li:hover {
+        color: #fff;
+      }
+
+      .overlaw {
+        
+        position: fixed;
+        top: 0;
+        bottom: 0;
+
+        width: 100%;
+        height: 100%;
+        background-color: rgb(0, 0, 0);
+        opacity: 0.9;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+        text-align: center;
+      }
+
+      .overlaw.active {
+        
+        display: flex;
+      }
+
+      .overlaw-content {
+        
+        position: relative;
+        width: 85%;
+        height: 80%;
+        overflow: auto;
+        background-color: inherit;
+        padding: 5%;
+        
+        align-items: center;
+        text-align: center;
+
+      }
+
+      
+
+      .overlaw-close {
+        
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 30px;
+        font-weight: bold;
+        color: #fff;
+        cursor: pointer;
+        
+      }
+      .inner {
+        
+        display: flex;
+        align-items: center;
+
+        height: min-content; 
+        width: 99%;
+        background-color:inherit;
+        margin-top:5%;
+        
+
+        
+      }
+
+      .text {
+        color: rgb(132, 132, 132);
+        margin:5px;
+        font-size: 95%;
+        flex-basis: 50%;
+        text-align: left;
+        
+        padding-bottom: 0;
+        border: 3px solid black;
+        border-radius: 10px ;
+        height: min-content;
+        width: 95%;
+        
+        background-color: transparent;
+      }
+      .text h2{
+        color: #ffffff;
+        font-size: xx-large;
+        font-weight: bolder;
+      }
+
+      .pic {
+        flex-basis: 50%;
+        text-align: center;
+        height: max-content;
+        width:95%;
+        margin:2%;
+
+      }
+
+      .pic img {
+        border-radius: 3px;
+        max-width: 100%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-bar">
+      <div class="logo">
+        <img src="x2.png" alt="Logo" />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="story.html">Story</a></li>
+          <li><a href="characters.html">Characters</a></li>
+          <li><a href="titans.html">Titans</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="fanart.html">Fanarts</a></li>
+          <li><a href="game.html">Game</a></li>
+          <li><a href="info.html">Info</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container">
+      <div class="image a">
+        <img src="thin(shinigashina).jpg" alt="Image A" />
+      </div>
+      <div class="overlaw" id="overlawa" >
+        <div class="overlaw-content" >
+            <div class="inner">
+                <div class="text">
+                    <h2>Arc1 : The Fall Of Shinigashina</h2>
+                  <p>The first arc of "Attack on Titan" introduces us to a world where humanity lives within a walled city to protect themselves from Titans, massive humanoid creatures that devour humans without reason. The main protagonist, Eren Jaeger, dreams of leaving the walls and exploring the outside world. One day, a colossal Titan breaches the outer wall, unleashing chaos and destruction upon the city. The arc culminates in a climactic battle against the Female Titan, a shapeshifting Titan who seems to be after Eren specifically. The first arc of "Attack on Titan" sets the stage for the series' dark, intense tone, complex characters, and intricate world-building.</p>
+                </div>
+                <div class="pic">
+                  <img src="aarc1.png" alt="arc1">
+                </div>
+              </div>
+        </div>
+      </div>
+
+      <div class="image b">
+        <img src="thin(clash of titans).jpg" alt="Image B" />
+      </div>
+      <div class="overlaw" id="overlawb">
+        <div class="overlaw-content">
+            <div class="inner">
+                <div class="text">
+                    <h2>Arc 2: Clash of Titans</h2>
+                  <p>The Titan Fighting Arc, also known as the Clash of the Titans Arc, is a major storyline in the popular anime and manga series, Attack on Titan. This arc takes place after the events of the Trost District arc and revolves around the appearance of a new type of Titan, known as the Beast Titan.
+
+                    The arc begins with the Survey Corps being dispatched to the Wall Rose to investigate reports of Titans breaching the wall. As they investigate, they encounter the Beast Titan for the first time, a strange creature with the ability to talk and control other Titans. The Beast Titan is revealed to be working alongside Reiner Braun and Bertolt Hoover, two of the cadets from the 104th Training Corps who were revealed to be Titans at the end of the previous arc.
+                    
+                    The Survey Corps engages in a series of intense battles against the Titans, including the Beast Titan and its allies. This arc introduces several new characters, including the mysterious Ymir, who has her own connection to the Titans..</p>
+                </div>
+                <div class="pic">
+                  <img src="aarc2.png" alt="Arc 2">
+                </div>
+              </div>
+        </div>
+      </div>
+
+      <div class="image c">
+        <img src="arc3.jpg" alt="Image C" />
+      </div>
+      <div class="overlaw" id="overlawc">
+        <div class="overlaw-content">
+            <div class="inner">
+                <div class="text">
+                    <h2>Arc 3: Uprising Arc</h2>
+                  <p>The Uprising Arc is a major storyline in the Attack on Titan series that takes place after the Clash of the Titans Arc. It explores the political and social consequences of the previous arc's events and features conflicts between the government and the Survey Corps. The arc reveals the government's manipulation of information and memories, introduces new characters, and focuses on political intrigue and character development. It ends with a dramatic confrontation between the Survey Corps and the government, setting the stage for the next major storyline.</p>
+                </div>
+                <div class="pic">
+                  <img src="aarc3.png" alt="Arc 3">
+                </div>
+              </div>
+        </div>
+      </div>
+
+      <div class="image d">
+        <img src="thin(marley).jpg" alt="Image D" />
+      </div>
+      <div class="overlaw" id="overlawd">
+        <div class="overlaw-content">
+            <div class="inner">
+                <div class="text">
+                    <h2>Arc 4: Marley</h2>
+                  <p>The Marley Arc is a major storyline in the Attack on Titan series. It takes place after the events of the Uprising Arc and explores the world beyond Paradis Island. The arc introduces new characters, including Reiner Braun, who is revealed to be a warrior from the nation of Marley. The story shifts to focus on the perspective of the Marleyans, revealing their history and motivations. The arc also introduces the concept of the Titan Shifters, humans who can transform into Titans, and explores their origins and powers. The Marley Arc is known for its intricate plot, complex character development, and themes of war, discrimination, and family. It sets the stage for the final arc of the series.</p>
+                </div>
+                <div class="pic">
+                  <img src="aarc4.jpg" alt="Your image alt text here">
+                </div>
+              </div>
+        </div>
+      </div>
+
+      <div class="image e">
+        <img src="thin(rumbling).jpg" alt="Image E" />
+      </div>
+      <div class="overlaw" id="overlawe">
+        <div class="overlaw-content">
+            <div class="inner">
+                <div class="text">
+                    <h2>Arc 5: The Rumbling</h2>
+                  <p>The Last Arc is the epic finale of Attack on Titan, where all plotlines and characters converge for a climactic end. It follows the Paradis Island's forces as they launch a full-scale assault on Marley, revealing shocking truths about the nature of Titans and the world beyond the walls.
+
+                    This arc is characterized by intense action and emotional moments, where characters must confront their fates and face the consequences of their choices. Themes of freedom, destiny, and the human condition are explored in depth, highlighting the struggle to find meaning in a world filled with violence and suffering.
+                    
+                    The final chapters of the manga deliver a poignant and satisfying conclusion to the story, reflecting on the series' themes and characters in a profound and moving way. Fans eagerly await the anime adaptation of this arc, hoping to experience the epic conclusion of Attack on Titan brought to life on screen.</p>
+                </div>
+                <div class="pic">
+                  <img src="aarc5.jpg" alt="rumbling">
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const overlays = document.querySelectorAll(".overlaw");
+      const images = document.querySelectorAll(".image");
+
+      images.forEach((image) => {
+        const letter = image.classList[1];
+        const overlay = document.querySelector(`#overlaw${letter}`);
+
+        image.addEventListener("click", () => {
+          overlays.forEach((overlay) => overlay.classList.remove("active"));
+          overlay.classList.add("active");
+        });
+
+        overlay.addEventListener("click", () => {
+          overlay.classList.remove("active");
+        });
+
+        const content = overlay.querySelector(".overlaw-content");
+        content.addEventListener("click", (event) => {
+          event.stopPropagation();
+        });
+      });
+    </script>
+  </body>
+</html>
