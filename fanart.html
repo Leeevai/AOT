@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <title>Fanarts</title>
+    <style>
+      body,
+      html {
+        font-family: 'Source Sans Pro', sans-serif;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        overflow: hidden;
+        user-select: none;
+      }
+
+      .sr-only {
+        position: absolute;
+        pointer-events: none;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        color: transparent;
+      }
+
+      input {
+        position: absolute;
+        opacity: 0;
+        margin-top: 95vh;
+        cursor: pointer;
+      }
+
+      label {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border: solid 2px white;
+        border-radius: 999px;
+        background-color: transparent;
+        margin: 95vh 6px 0 6px;
+        z-index: 2;
+        cursor: pointer;
+        transition-duration: 0.4s;
+        box-shadow: 0 0 20px 0 #000;
+      }
+
+      input:checked + label {
+        background-color: white;
+      }
+
+      input + label::after {
+        content: "";
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 512' width='100' style='fill:white'%3E%3Cpath d='M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z' /%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: center 55%;
+        background-size: 80px 80px;
+        line-height: 100vh;
+        transition: background-size 200ms;
+        position: absolute;
+        color: white;
+        height: calc(95vh - 12px);
+        width: 80px;
+        top: 0;
+        left: 0;
+        z-index: 20;
+      }
+
+      input + label:hover::after {
+        background-size: 90px 90px;
+      }
+
+      input:checked + label::after {
+        background-image: none;
+        width: 100vw;
+        left: 0;
+        z-index: 10;
+      }
+
+      input:checked + label + .slide ~ input + label::after {
+        display: none;
+      }
+
+      input:checked + label + .slide + input + label::after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 512' width='100' fill='white'%3E%3Cpath d='M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z' /%3E%3C/svg%3E");
+        display: block;
+        width: 80px;
+        right: 0;
+        left: auto;
+      }
+
+      input:focus + label {
+        box-shadow: 0 0 0 2px teal, 0 0 18px white;
+      }
+
+      .slide {
+        padding-top: 10%;
+        position: absolute;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 100%;
+        
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transform: translateX(-100%);
+        transition-duration: 0.4s;
+        opacity: 1;
+      }
+
+      input:checked ~ .slide {
+        transform: translateX(100%);
+      }
+
+      input:checked + label + .slide {
+        transform: translateX(0);
+        opacity: 1;
+      }
+
+      .bg1 {
+        background-image: url(fn2.jpg);
+      }
+      .bg2 {
+        background-image: url(fn3.jpg);
+      }
+      .bg3 {
+        background-image: url(fn4.jpg);
+      }
+      .bg4 {
+        background-image: url(fn5.jpg);
+      }
+      .bg5 {
+        background-image: url(1337377-The-Rumbling-Attack-On-Titan-Founding-TitanAttack.jpg);
+      }
+      .bg6 {
+        background-image: url(fn6.jpg);
+      }
+      .bg7{
+        background-image: url(fn7.jpg);
+      }
+      .bg8 {
+        background-image: url(fn8.jpg);
+      }
+      .bg9 {
+        background-image: url(fn9.jpg);
+      }
+      .bg10 {
+        background-image: url(fn10.jpg);
+      }
+      .bg11 {
+        background-image: url(fn11.jpg);
+      }
+      .bg12{
+        background-image: url(fn12.jpg);
+      }
+      .bg13 {
+        background-image: url(fn13.jpg);
+      }
+      .bg14 {
+        background-image: url(fn14.gif);
+      }
+      .bg15 {
+        background-image: url(fn15.jpg);
+      }
+
+      .top-bar {
+        border: 1px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #1e1e1e;
+        z-index: 999;
+      }
+
+      .logo img {
+        height: 60px;
+        background-color: transparent;
+      }
+
+      nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      nav li {
+        margin-right: 20px;
+      }
+
+      nav a {
+        color: #ffffff78;
+        text-decoration: none;
+      }
+      nav a:hover {
+        color: #ffffff;
+        transition: 0.6s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-bar">
+      <div class="logo">
+        <img src="x2.png" alt="Logo" />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="story.html">Story</a></li>
+          <li><a href="characters.html">Characters</a></li>
+          <li><a href="titans.html">Titans</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="fanart.html">Fanarts</a></li>
+          <li><a href="game.html">Game</a></li>
+          <li><a href="info.html">Info</a></li>
+        </ul>
+      </nav>
+    </div>
+    <input type="radio" id="trigger1" name="slider" />
+    <label for="trigger1"><span class="sr-only">Slide 1 of 15. </span></label>
+    <div class="slide bg1"></div>
+
+    <input type="radio" id="trigger2" name="slider" checked autofocus />
+    <label for="trigger2"><span class="sr-only">Slide 2 of 15. </span></label>
+    <div class="slide bg2"></div>
+
+    <input type="radio" id="trigger3" name="slider" />
+    <label for="trigger3"><span class="sr-only">Slide 3 of 15. </span></label>
+    <div class="slide bg3"></div>
+
+    <input type="radio" id="trigger4" name="slider" />
+    <label for="trigger4"><span class="sr-only">Slide 4 of 15. </span></label>
+    <div class="slide bg4"></div>
+
+    <input type="radio" id="trigger5" name="slider" />
+    <label for="trigger5"><span class="sr-only">Slide 5 of 15.</span></label>
+    <div class="slide bg5"></div>
+
+    <input type="radio" id="trigger6" name="slider" />
+    <label for="trigger6"><span class="sr-only">Slide 6 of 15.</span></label>
+    <div class="slide bg6"></div>
+
+    <input type="radio" id="trigger7" name="slider" />
+    <label for="trigger7"><span class="sr-only">Slide 7 of 15.</span></label>
+    <div class="slide bg7"></div>
+
+    <input type="radio" id="trigger8" name="slider" />
+    <label for="trigger8"><span class="sr-only">Slide 8 of 15.</span></label>
+    <div class="slide bg8"></div>
+
+    <input type="radio" id="trigger9" name="slider" />
+    <label for="trigger9"><span class="sr-only">Slide 9 of 15.</span></label>
+    <div class="slide bg9"></div>
+
+    <input type="radio" id="trigger10" name="slider" />
+    <label for="trigger10"><span class="sr-only">Slide 10 of 15.</span></label>
+    <div class="slide bg10"></div>
+
+    <input type="radio" id="trigger11" name="slider" />
+    <label for="trigger11"><span class="sr-only">Slide 11 of 55.</span></label>
+    <div class="slide bg11"></div>
+
+    <input type="radio" id="trigger12" name="slider" />
+    <label for="trigger12"><span class="sr-only">Slide 12 of 15.</span></label>
+    <div class="slide bg12"></div>
+
+    <input type="radio" id="trigger13" name="slider" />
+    <label for="trigger13"><span class="sr-only">Slide 13 of 15.</span></label>
+    <div class="slide bg13"></div>
+
+    <input type="radio" id="trigger14" name="slider" />
+    <label for="trigger14"><span class="sr-only">Slide 14 of 15.</span></label>
+    <div class="slide bg14"></div>
+    <input type="radio" id="trigger15" name="slider" />
+    <label for="trigger15"><span class="sr-only">Slide 15 of 15.</span></label>
+    <div class="slide bg15"></div>
+  </body>
+</html>
